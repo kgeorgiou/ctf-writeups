@@ -1,8 +1,6 @@
-**Name**: Blacklist Reloaded  
-**Instructions**: Maybe I'm foolish, maybe I'm blind, thinking I can see through this and see what's behind! Can you get the flag from http://challenges.runesec.com:15123 ?  
-**Hint**: Can you leak out any information? You might like it :)  
-**Flag Format**: flag{md5-hash}  
-**Tags**: web, sqli
+*Name*: Blacklist Reloaded  
+*Instructions*: Maybe I'm foolish, maybe I'm blind, thinking I can see through this and see what's behind! Can you get the flag from http://challenges.runesec.com:15123 ?  
+*Hint*: Can you leak out any information? You might like it :)  
 
 ### Exploration
 We know this is another challenge of SQL injection with a blacklist.
