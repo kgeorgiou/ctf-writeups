@@ -8,9 +8,10 @@ Based on the instructions for this challenge, we should start by looking for som
 
 ### Exploitation
 The default configuration file for PHP is named `php.ini`. We can try finding it using relative path traversals.  
-1st attempt: `/php.ini`  
-2nd attempt: `/../php.ini`  
-3rd attempt: `/%2e%2e%2fphp.ini` works.  
+1st attempt: `/php.ini`, Nope  
+2nd attempt: `/../php.ini`, Nope  
+*(Maybe we should URL encode `../`)*  
+3rd attempt: `/%2e%2e%2fphp.ini`, Success  
 *(We were lucky this was only 1 level up from the directory index.html resides; the relative path could've been more complicated)* 
 
 The file contains the following information: `database_file = "users.db";`  
