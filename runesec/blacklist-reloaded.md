@@ -24,7 +24,7 @@ This works, kinda. We go through the login wall successfully, but the page we la
 
 This will prove helpful. We know whatever statement we put after `OR`, will be true only if we land on this page, otherwise we'll get to a page that reads `Login failed`.
 
-##### Finding table names:
+#### Finding table names:
 From https://www.sqlite.org/faq.html:
 ```
 Every SQLite database has an SQLITE_MASTER table that defines the schema for the database.  
