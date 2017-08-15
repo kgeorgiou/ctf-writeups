@@ -79,7 +79,7 @@ We can do that by replacing block 10 with block 14. Now we have the following ke
 ```
 
 We concatenate the above blocks to a single string which can use to replace our current cookie in our browser.  
-*In Chrome: Dev Tools > Application > Cookies > Double click on the value of `session` to edit*  
+*In Chrome: Dev Tools > Application > Cookies > Double click on the value of `session` to edit.*  
 
 We refresh the page for the request to be sent with the cookie we crafted, and *voilà*, we capture the flag.
 
