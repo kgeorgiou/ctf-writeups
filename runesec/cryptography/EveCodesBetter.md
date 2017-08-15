@@ -7,10 +7,10 @@
 - We're given a login screen (Username & Password)
 
 - Inspecting the page's source we see this comment:
-> <!-- Guys use dev:dev_testing until we go live --\>  
+> \<!-- Guys use dev:dev_testing until we go live --\>  
 
 - We are in. Now the source contains the following comment:
-> <!-- DEBUG - REMOVE THIS BEFORE WE GO LIVE!
+> \<!-- DEBUG - REMOVE THIS BEFORE WE GO LIVE!
 Cookie Value:
 Encrypted Cookie Value: 5e72ac7a72f2100c2a89b80cd2e171706215010861f697b2b5ab2692d5b75925d664080769d6e8f02c5b5713a26b70bf5258ace96b0c51d322effbefea935f9ef718ac79f1281b4d77deff88cbac078847523918f1647186d71f4ef3476ae487ecb7c92019cfe7ec7447505374b81eb15e72ac7a72f2100c53d565f81ee58dce7848fdea6f83922a461fad5d1b842ac2
 Decrypted Cookie Value: username=dev;first_name=developer;last_name=developer;is\__admin=\__False\__;status=0;_environment=\__True\__;is_the_username_enabled=yes;loggedin=1;
