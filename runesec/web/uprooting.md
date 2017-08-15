@@ -11,7 +11,7 @@
 - Based on the instructions for this challenge, and the message we get when we attempt to login, we should start by looking for a PHP configuration file.
 
 ## Exploitation
-The default configuration file for PHP is named `php.ini`. We can try finding it using relative path traversals.  
+The default configuration file for PHP is named `php.ini`. We can try finding it using relative path traversals, from our browser.  
 - 1st attempt: `/php.ini`  
 - 2nd attempt: `/../php.ini`  
 
