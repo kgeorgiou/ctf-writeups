@@ -1,14 +1,16 @@
-*Name*: Blacklist Reloaded  
-*Instructions*: Maybe I'm foolish, maybe I'm blind, thinking I can see through this and see what's behind! Can you get the flag from http://challenges.runesec.com:15123 ?  
-*Hint*: Can you leak out any information? You might like it :)  
+**Name**: Blacklist Reloaded  
+**Points**: 600  
+**Instructions**: Maybe I'm foolish, maybe I'm blind, thinking I can see through this and see what's behind! Can you get the flag from http://challenges.runesec.com:15123 ?  
+**Hint**: Can you leak out any information? You might like it :)  
 
 ### Exploration
-We know this is another challenge of SQL injection with a blacklist.
-We are given a login interface with Username and Password fields. We assume the following query is invoked on the login server:  
+- We know this is another challenge of SQL injection with a blacklist.  
+
+- We are given a login interface with Username and Password fields. We assume the following query - more or less - is invoked on the login server:  
 `SELECT * FROM ??? WHERE username="{sqli input}" AND password="{sqli input}"`  
 
-We can start by finding what's in the blacklist and what we can actually use.  
-*(If a blacklisted term is found in the input, a special page is returned saying that a blacklisted term was used)*  
+- We can start by finding what's in the blacklist and what we can actually use.  
+*(If a blacklisted term is found in the input, a special page is returned saying that a blacklisted term was used.)*  
 Some of the blacklisted semantics: `', ;, =, UNION`  
 Some of the semantics we can use: `", OR, AND, EXISTS, SELECT, WHERE, LIKE, %, /*, --`
 
