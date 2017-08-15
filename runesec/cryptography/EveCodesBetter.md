@@ -1,6 +1,6 @@
 **Name**: EveCodesBetter  
 **Points**: 400  
-**Instructions**: There is a website running at http://challenges.runesec.com:49670. Try to see if you can become an administrator.
+**Instructions**: There is a website running at http://challenges.runesec.com:49670. Try to see if you can become an administrator.  
 **Hint**: Everyone knows that mode is bad because we can see the penguin!  
 
 ### Exploration
