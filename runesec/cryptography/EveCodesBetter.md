@@ -16,13 +16,19 @@ Encrypted Cookie Value: 5e72ac7a72f2100c2a89b80cd2e171706215010861f697b2b5ab2692
 Decrypted Cookie Value: username=dev;first_name=developer;last_name=developer;is\__admin=\__False\__;status=0;_environment=\__True\__;is_the_username_enabled=yes;loggedin=1;
 --\>  
 
-- We notice 5e72ac7a72f2100c is repeated twice in the string. 
+- The cookie ciphertext in the page's source code is stored in our browser as well.
+
+- We notice 5e72ac7a72f2100c is repeated twice in the ciphertext. 
 
 - Looking up "cryptography we can see the penguin" we quickly find out about ECB encryption - and about its weakness. 
 
 - ECB operates - usually - on blocks of either 8 or 16 bytes. The ciphertext we have at hand seems to be using blocks of 8 bytes.
 
 - ECB's weakness explains our 1st observation. 5e72ac7a72f2100c in the cipher text maps to "username" in plaintext. Because it's ECB, if we split the plain text in blocks of 8 bytes, any blocks that have the same value in the plaintext, they will have the same value in the ciphertext as well. That's the case with 5e72ac7a72f2100c -> username.
+
+- If we edit the ciphertext in our browser and send a request to the server, we get back the plaintext of whatever we sent. We have an Oracle at hand. Maybe we can use this to gather information and trick the cookie into thinking we're admin.
+
+- Maybe we could re-write the decrypted cookie plaintext and change `is__admin=__False__` to `is__admin=__True__`, encrypt it, and send the ciphertext to the server. There's one (huge) caveat: we don't have the key. 
 
 ## Exploitation 
 Let's break both the ciphertext and tha plain text in blocks of 8 bytes:
@@ -46,7 +52,7 @@ Let's break both the ciphertext and tha plain text in blocks of 8 bytes:
 17. 7848fdea6f83922a -> =yes;log
 18. 461fad5d1b842ac2 -> gedin=1;
 ```
-Our eyes are, of course, on `is__admin=__False__`, we must find a way to make it positive, a.k.a `__True__`.  
+Our eyes are, of course, on `is__admin=__False__;`, we must find a way to make it positive, a.k.a `__True__`.  
 
 We have a puzzle at hand. We need to replace `__False__` with `__True__`.  
 
