@@ -3,7 +3,7 @@
 **Instructions**: There is a website running at http://challenges.runesec.com:49670. Try to see if you can become an administrator.  
 **Hint**: Everyone knows that mode is bad because we can see the penguin!  
 
-### Exploration
+## Exploration
 - We're given a login screen (Username & Password)
 
 - Inspecting the page's source we see this comment:
@@ -24,7 +24,7 @@ Decrypted Cookie Value: username=dev;first_name=developer;last_name=developer;is
 
 - ECB's weakness explains our 1st observation. 5e72ac7a72f2100c in the cipher text maps to "username" in plaintext. Because it's ECB, if we split the plain text in blocks of 8 bytes, any blocks that have the same value in the plaintext, they will have the same value in the ciphertext as well. That's the case with 5e72ac7a72f2100c -> username.
 
-### Exploitation 
+## Exploitation 
 Let's break both the ciphertext and tha plain text in blocks of 8 bytes:
 ```
 1.  5e72ac7a72f2100c -> username
@@ -83,7 +83,7 @@ We concatenate the above blocks to a single string which can use to replace our 
 
 We refresh the page for the request to be sent with the cookie we crafted, and *voilà*, we capture the flag.
 
-### Notes
+## Notes
 The way the key-value string was written, shows the author of the challenge aimed for a specific alignment of the blocks so they can be re-arranged (by padding with underscores, using 3 different formats that resemble booleans.)  
 There are plenty ways to re-arrange the above blocks while maintaining `is__admin=__True__;`.   
 
