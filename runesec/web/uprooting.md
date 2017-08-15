@@ -3,14 +3,14 @@
 **Instructions**: There is a website running at http://challenges.runesec.com:53945. Misconfigurations sometimes kill the cats  
 **Hint**: Some things are just relative...  
 
-### Exploration
+## Exploration
 - From the name of this challenge and the given hint, we can guess that the website provided is vulnerable to [path traversal](https://www.owasp.org/index.php/Path_Traversal) attacks.  
 - We are given a login interface (Username & Password.) We attempt to login, and as expected, we can't go through, but we get the following message from `/login.php`:  
 > Cannot access php config file  
 
 - Based on the instructions for this challenge, and the message we get when we attempt to login, we should start by looking for a PHP configuration file.
 
-### Exploitation
+## Exploitation
 The default configuration file for PHP is named `php.ini`. We can try finding it using relative path traversals.  
 - 1st attempt: `/php.ini`  
 - 2nd attempt: `/../php.ini`  
@@ -31,7 +31,7 @@ No we can try find `users.db`.
 
 We grab that hex string at the end and convert it to UTF8 to get the flag.
 
-### Notes
+## Notes
 We were lucky `php.ini` was only 1 level up from the directory `index.html` resides; the relative path could've been more complicated.  
 
 The directory structure on the server was - more or less - the following:   
