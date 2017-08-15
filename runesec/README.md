@@ -1,14 +1,14 @@
-#### URL
+## URL
 ctf.runesec.com
 
-#### Organizer
+## Organizer
 RUNESEC - runesec.com
 
-#### Duration
+## Duration
 July 21st, 2017 - August 14th, 2017
 
-#### Type
+## Type
 Online
 
-#### Flag Format
+## Flag Format
 flag{md5-hash}
