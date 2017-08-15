@@ -38,8 +38,8 @@ The directory structure on the server was - more or less - the following:
 ```
 .  
 ├── webroot  
-│   ├── index.html <- *we start from here*  
+│   ├── index.html <- we start from here  
 │   └── login.php  
-├── php.ini        <- *we can get here with `../`*  
+├── php.ini        <- we can get here with ../  
 └── users.db
 ```
