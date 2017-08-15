@@ -3,7 +3,7 @@
 **Instructions**: Maybe I'm foolish, maybe I'm blind, thinking I can see through this and see what's behind! Can you get the flag from http://challenges.runesec.com:15123 ?  
 **Hint**: Can you leak out any information? You might like it :)  
 
-### Exploration
+## Exploration
 - We know this is another challenge of SQL injection with a blacklist.  
 
 - We are given a login interface with Username and Password fields. We assume the following query - more or less - is invoked on the login server:  
@@ -14,7 +14,7 @@
 Some of the blacklisted semantics: `', ;, =, UNION`  
 Some of the semantics we can use: `", OR, AND, EXISTS, SELECT, WHERE, LIKE, %, /*, --`
 
-### Exploitation
+## Exploitation
 We start pretty simple:  
 `" OR 1 /*`
 - `"` to validly close the opened quotes that expect to contain the username.
@@ -26,7 +26,7 @@ This works, kinda. We go through the login wall successfully, but the page we la
 
 This will prove helpful. We know whatever statement we put after `OR`, will be true only if we land on this page, otherwise we'll get to a page that reads `Login failed`.
 
-#### Finding table names:
+### Finding table names:
 From https://www.sqlite.org/faq.html:
 ```
 Every SQLite database has an SQLITE_MASTER table that defines the schema for the database.  
@@ -60,7 +60,7 @@ Repeating the process, for the rest of the table name we discover a table named 
 
 We guess there's a column named `flag` in table `flagHERE` and we can use the same methodology as above to discover the flag, one character at a time.
 
-### Solution 
+## Solution 
 ```
 var axios = require('axios');
 
