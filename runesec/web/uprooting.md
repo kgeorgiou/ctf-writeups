@@ -35,9 +35,11 @@ We grab that hex string at the end and convert it to UTF8 to get the flag.
 We were lucky `php.ini` was only 1 level up from the directory `index.html` resides; the relative path could've been more complicated.  
 
 The directory structure on the server was - more or less - the following:   
+```
 .  
 ├── webroot  
 │   ├── index.html <- *we start from here*  
 │   └── login.php  
 ├── php.ini        <- *we can get here with `../`*  
 └── users.db
+```
