@@ -31,7 +31,7 @@ Decrypted Cookie Value: username=dev;first_name=developer;last_name=developer;is
 - Maybe we could re-write the decrypted cookie plaintext and change `is__admin=__False__` to `is__admin=__True__`, encrypt it, and send the ciphertext to the server. There's one (huge) caveat: we don't have the key. 
 
 ## Exploitation 
-Let's break both the ciphertext and tha plain text in blocks of 8 bytes:
+Let's break both the ciphertext and the plaintext in blocks of 8 bytes:
 ```
 1.  5e72ac7a72f2100c -> username
 2.  2a89b80cd2e17170 -> =dev;fir
