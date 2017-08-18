@@ -33,7 +33,7 @@ Fatal error: Uncaught Error: Call to a member function fetchArray() on boolean i
 
 ## Exploitation
 
-Let's try guess what query is invoked on the server to authorize us:
+Let's try guess the query that's invoked on the server to authorize us:
 ```
 SELECT * FROM ??? WHERE ???={input} AND ???="{input}";
 ```
