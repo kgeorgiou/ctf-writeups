@@ -87,7 +87,9 @@ var step = function(i, c, flag) {
     });
 }
 step(0, 0, '');
-
+```
+Output:
+```
 f
 fl
 fla
