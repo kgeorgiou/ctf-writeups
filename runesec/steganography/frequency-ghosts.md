@@ -6,7 +6,7 @@
 ## Exploration
  - The easiest thing we can do with an audio file, is to listen to it. It'd be heavenly if we'd hear some warm voice reciting the flag's MD5 hash for us. But, no. It's just random, unsettling noise. 
 
- - We recall the infamous cipher [11B-X-1371](https://en.wikipedia.org/wiki/11B-X-1371) that had some (disturbing) images hidden in the video's audio [spectrogram](https://en.wikipedia.org/wiki/Spectrogram).
+ - We recall the infamous puzzle [11B-X-1371](https://en.wikipedia.org/wiki/11B-X-1371) that had some (disturbing) images hidden in the video's audio [spectrogram](https://en.wikipedia.org/wiki/Spectrogram).
  
  - We need to find a way to check this .wav file's spectrogram.  
    
