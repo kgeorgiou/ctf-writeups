@@ -21,7 +21,9 @@
 
 - From the hint of this challenge, we know we'll have to craft an SQL injection query to get through. We also know there's a blacklist that filters out some SQL semantics from the input.
 
-- The first HTML input field (for username/id) has `type="number"` so it can only accept numeric values. Not really. We can edit the type to `type="text"` through our browsers dev tools and input whatever we want. We could also send our requests outside of the browser, through `curl` for example.
+- The first HTML input field (for username/id) has `type="number"` so it can only accept numeric values. Not really. We can edit the type to `type="text"` through our browser's dev tools and input whatever we want. 
+
+- We could also send our requests outside of the browser, through `curl`, for example.
 
 - Using `'` and `"` in the inputs makes the page throw some errors:  
 ```
@@ -36,14 +38,14 @@ Let's try guess what query is invoked on the server to authorize us:
 SELECT * FROM ??? WHERE ???={input} AND ???="{input}";
 ```
 We have no idea what the table is named.  
-We have some idea what the 2 columns could be called. `id` and `password` maybe? Let's go with that.
+We have some idea what the 2 columns might be called. `id` and `password` maybe? Let's go with that.
 
 So our guess now is:
 ```
 SELECT * FROM ??? WHERE id={input} AND password="{input}";
 ```
 
-So for us to get through, it all boils down to making the expression `id={input} AND password="{input}"` evaluate to true.
+So, for us to get through, it all boils down to making the expression `id={input} AND password="{input}"` evaluate to true.
 
 *Notice there are no quotes around the input for id. That's because it's expecting a numeric value. We can be confident about that since the UI is only allowing for numeric input.*
 
@@ -57,7 +59,10 @@ Which results to the following crafted query on the server:
 SELECT * FROM ??? WHERE id=1 OR 1 AND password="";
 ```
 
-This works because `false OR true AND false` => `true`, since `anything OR true` evaluates to `true`, always.  
+> SQLite does not have a separate Boolean storage class. Instead, Boolean values are stored as integers 0 (false) and 1 (true). (https://sqlite.org/datatype3.html)
+
+The crafted query above works because `false OR true AND false` => `true`, since `anything OR true` evaluates to `true`, always.  
+
 We're lucky `OR` is not blacklisted.
 
 #### Solution 2
@@ -88,10 +93,3 @@ We could also (naively) write a script to brute force the id:
 ...  
 ...  
 *To infinity and beyond!*
-
-
-
-
-
-
-
