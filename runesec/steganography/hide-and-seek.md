@@ -15,5 +15,5 @@ Our photoshop efforts were in vain.
 
 However, we've discovered this tool called [steghide](http://steghide.sourceforge.net/). It seems like the go-to steganography encode/decoder.
 
-There's an online running steghide at https://futureboy.us/stegano/decinput.html. We upload the image and this tool kindly gives us the flag. 
+There's an online service running steghide at https://futureboy.us/stegano/decinput.html. We upload the image and this tool kindly gives us the flag. 
 
