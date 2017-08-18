@@ -80,7 +80,7 @@ For this to work we have to correctly guess the column for the username/id field
 #### More Solutions
 There are plenty of crafted queries that can get us in, but we have a strong preference towards short and concise solutions.  
 
-We could also (naively) write a script to brute force the id:
+We could also (naively) write a script to brute force the id:  
 `id=0 /*`  
 `id=1 /*`  
 `id=-1 /*`  
