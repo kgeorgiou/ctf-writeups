@@ -1,6 +1,6 @@
 **Name**: Open Standards  
 **Points**: 60  
-**Instructions**: Eeeehh, What's up doc? open-standards.docx 
+**Instructions**: Eeeehh, What's up doc? [open-standards.docx](https://challenges.runesec.com/static/c68401da5ae9654afb286440dfa9a40f/open-standards.docx)  
 **Hint**: XML is awesome! /sarcasm
 
 ## Exploration
