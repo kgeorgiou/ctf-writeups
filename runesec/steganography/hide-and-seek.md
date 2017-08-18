@@ -7,11 +7,11 @@
 
 - We open the image. No signs of a flag.
 
-- Maybe we can open this image in photoshop and start playing with the colors (invert, contrast, etc,) maybe there's something's to be discovered.
+- Maybe we can open it in photoshop and start playing with the colors (invert, contrast, etc,) maybe there's something's to be discovered.
 
 ## Exploitation
 
-Our photoshop were in vain.  
+Our photoshop efforts were in vain.  
 
 However, we've discovered this tool called [steghide](http://steghide.sourceforge.net/). Seems like the go-to steganography encode/decoder.
 
