@@ -1,6 +1,6 @@
 **Name**: Frequency Ghosts  
 **Points**: 100  
-**Instructions**: People say there is a ghost in this file: frequency-ghosts.wav  
+**Instructions**: People say there is a ghost in this file: [frequency-ghosts.wav](https://challenges.runesec.com/static/f3702ddd4ee5fa4f34de56f3bf055ff2/frequency-ghosts.wav)  
 **Hint**: Follow the title and be a bit creative!
 
 ## Exploration
