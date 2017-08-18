@@ -24,7 +24,7 @@ The default configuration file for PHP is named `php.ini`. We can try finding it
 The file has the following content:  
 `database_file = "users.db";`  
 
-No we can try find `users.db`.  
+Now we can try find `users.db`.  
 
 `/%2e%2e%2fusers.db` works and we get the following:  
 `SQLite format 3@ -� ��@atableusersusersCREATE TABLE users (id integer, flag text) ��R	�)0x666c61677b31303465636536666138373164336365663963303865363939623133656338397d`  
