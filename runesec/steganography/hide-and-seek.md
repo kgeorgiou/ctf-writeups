@@ -1,6 +1,6 @@
 **Name**: Hide And Seek  
 **Points**: 80  
-**Instructions**: When there is nothing left to hide, there is nothing left to seek: hidenseek.jpg  
+**Instructions**: When there is nothing left to hide, there is nothing left to seek: [hidenseek.jpg](https://challenges.runesec.com/static/6c6ebd9fa1c682d9089f2bd3f6de1dd5/hidenseek.jpg)  
 **Hint**: Let's play a game!  
 
 ## Exploration
