@@ -22,5 +22,5 @@ Answer: Transact Structured Query Language
 
 Correct!
 
- flag{9e89380472a54d2aa0277545a0a52873}
+flag{9e89380472a54d2aa0277545a0a52873}
 ```
