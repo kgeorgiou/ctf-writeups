@@ -90,8 +90,8 @@ We concatenate the above blocks to a single string which can use to replace our 
 We refresh the page for the request to be sent with the cookie we crafted, and *voilà*, we capture the flag.
 
 ## Notes
-The way the key-value string was written, shows the author of the challenge aimed for a specific alignment of the blocks so they can be re-arranged (by padding with underscores, using 3 different formats that resemble booleans.)  
-There are plenty ways to re-arrange the above blocks while maintaining `is__admin=__True__;`.   
+The way the key-value string was written, shows the author of the challenge aimed for a specific alignment of the blocks so they can be re-arranged (by padding with underscores, using 3 different formats that resemble booleans, etc.)  
+There are plenty of ways to re-arrange the above blocks while maintaining `is__admin=__True__;`.   
 
 Since we can't be certain how the server parses the cookie, a lot of time was spent trying to address the following questions:  
 - Do all the keys need to be present?
