@@ -105,12 +105,12 @@ E0604 02:23:12.839395 31978 challenge.cpp:458] You failed a quest and cannot win
 
 #### Quest Steps Breakdown
 
-1. Observe farm arrangement (randomly arranged on each session) - `.all farm`
-2. Move the sheep next to pig - `SELECT * FROM farm WHERE action='move' src=0x33 and dst=0x8D;`
-3. Pick up the water plail that the sheep was sitting on - `SELECT * FROM farm WHERE action='pickup' src=0x33;`
-4. Plant the seeds at one of the plowed plots - `SELECT * FROM farm WHERE action='plant' dst=0x1B;`
-5. Water the seeds we've planted - `SELECT * FROM farm WHERE action='water' dst=0x1B;`
-6. Pick up our grown plants - `SELECT * FROM farm WHERE action='pickup' src=0x1B;`
+1. Observe farm arrangement (randomly arranged on each session): `.all farm`
+2. Move the sheep next to pig: `SELECT * FROM farm WHERE action='move' src=0x33 AND dst=0x8D;`
+3. Pick up the water plail that the sheep was sitting on: `SELECT * FROM farm WHERE action='pickup' AND src=0x33;`
+4. Plant the seeds at one of the plowed plots: `SELECT * FROM farm WHERE action='plant' AND dst=0x1B;`
+5. Water the seeds we've planted: `SELECT * FROM farm WHERE action='water' AND dst=0x1B;`
+6. Pick up our grown plants: `SELECT * FROM farm WHERE action='pickup' AND src=0x1B;`
 
 We are only 6 steps away from the flag! But wait... That translates to 6 days in the game, we are only allowed 5!
 
@@ -126,7 +126,7 @@ We failed.
    > E0604 03:02:22.856065 3858 challenge.cpp:516] You can only perform 1 action a day.
 
 2. Is it possible to move the 🐑 next to the 🐷 without taking a peek at the farm first?
-   Nope. This took some time to put together, so it deserves a mention.
+   Nope. This took some time to put together, so it deserves a mention:
 
 ```
 SELECT farm, action, src, dst, fmt FROM
@@ -134,7 +134,7 @@ SELECT farm, action, src, dst, fmt FROM
 WHERE action='move' and src=INSTR(fmt, '🐑') and dst=(INSTR(fmt, '🐷')-1);
 ```
 
-Magnificent. Still a big fat nope though. `src` and `dst` need to be actual numbers.
+Magnificent. Still a big fat *nope* though. `src` and `dst` need to be actual numbers.
 
 #### Key Insight
 
