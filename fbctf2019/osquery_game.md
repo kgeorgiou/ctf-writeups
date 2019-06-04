@@ -20,9 +20,9 @@ Using a virtual database. Need help, type '.help'
 W0604 02:22:52.421134 31921 challenge.cpp:633] Welcome to the osquery farm simulator extension. You have 5 days to make your farm successful.
 ```
 
-We are connected to an [osquery](https://osquery.io/) shell
+We are connected to an [osquery](https://osquery.io/) shell.
 
-`osquery> .help` displays available commands  
+`osquery> .help` displays available commands.  
 `osquery> .schema` displays all available tables and their schemata. We notice tables `farm_quests`, `farm_actions`, `farm_emoji` and `farm`.
 
 ```
@@ -100,12 +100,12 @@ E0604 02:23:12.839395 31978 challenge.cpp:458] You failed a quest and cannot win
 ### Observations
 
 1. As the first quest states, the 🐑 sees us and runs away 😢. We need to be quick. We'll need to automate this with a script.
-2. The farm game extension gets triggered every time we query the `farm` table and makes the game progress by 1 day. This is important since we only have 5 days to complete our (3) quests.
-3. Since osquery supports `SELECT` statements only, we need to figure out how to issue a game command. `SELECT * FROM farm WHERE action={action_name} src={src} and dst={dst};` does the trick (`src` and `dst` can be in the form of `0xFF`, `0x10` or `255`, `16`, etc.
+2. The farm game extension gets triggered every time we query the `farm` table and makes the game progress by 1 day. This is important since we only have 5 days to complete our (4) quests.
+3. Since osquery supports `SELECT` statements only, we need to figure out how to issue a game command. `SELECT * FROM farm WHERE action={action_name} AND src={src} AND dst={dst};` does the trick (`src` and `dst` can be in the form of `0xFF`, `0x10` or `255`, `16`, etc.
 
 #### Quest Steps Breakdown
 
-1. Observe farm arrangement (randomly arranged on each session): `.all farm`
+1. Observe farm arrangement (randomly arranged on each session): `.all farm` or `SELECT * FROM farm;`
 2. Move the sheep next to pig: `SELECT * FROM farm WHERE action='move' src=0x33 AND dst=0x8D;`
 3. Pick up the water plail that the sheep was sitting on: `SELECT * FROM farm WHERE action='pickup' AND src=0x33;`
 4. Plant the seeds at one of the plowed plots: `SELECT * FROM farm WHERE action='plant' AND dst=0x1B;`
@@ -134,7 +134,7 @@ SELECT farm, action, src, dst, fmt FROM
 WHERE action='move' and src=INSTR(fmt, '🐑') and dst=(INSTR(fmt, '🐷')-1);
 ```
 
-Magnificent. Still a big fat *nope* though. `src` and `dst` need to be actual numbers.
+Magnificent. Still a big fat *nope* though. `src` and `dst` need actual numbers there.
 
 ### Key Insight
 
@@ -159,22 +159,17 @@ So we'll have to plant our seeds in the next season to avoid the following dread
 ```
 from pwn import *
 
-
 def move(src, dst):
     return "SELECT * FROM farm WHERE action='move' and src=%d and dst=%d;" % (src, dst)
-
 
 def pickup(src):
     return "SELECT * FROM farm WHERE action='pickup' and src=%d;" % (src)
 
-
 def plant(dst):
     return "SELECT * FROM farm WHERE action='plant' and dst=%d;" % (dst)
 
-
 def water(dst):
     return "SELECT * FROM farm WHERE action='water' and dst=%d;" % (dst)
-
 
 def find_positions(farm):
     sheep, pig, plowed_plot = -1, -1, -1
@@ -189,7 +184,6 @@ def find_positions(farm):
                 plowed_plot = k
             k += 1
     return (sheep, pig, plowed_plot)
-
 
 def main():
     r = ssh("osquerygame", "challenges.fbctf.com",
@@ -230,7 +224,6 @@ def main():
     sh.sendline(pickup(plowed_plot))
 
     sh.interactive()
-
 
 if __name__ == '__main__':
     main()
