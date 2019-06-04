@@ -132,7 +132,7 @@ SELECT farm, action, src, dst, fmt FROM
 WHERE action='move' and src=INSTR(fmt, '🐑') and dst=(INSTR(fmt, '🐷')-1);
 ```
 
-Magnificent. Still a big fat **nope** though. `src` and `dst` need actual numbers there.
+Glorious. Still a big fat **nope** though. `src` and `dst` need actual numbers there.
 
 ### Key Insight
 
