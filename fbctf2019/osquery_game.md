@@ -200,7 +200,7 @@ def main():
     for line in farm_lines[4:]:
         farm.append([x for x in unicode(line, "utf-8").strip()[1:]])
 
-    # Find the positions of interst
+    # Find the positions of interest
     sheep, pig, plowed_plot = find_positions(farm)
 
     # Day 2: Move sheep next to the left of the pig.
