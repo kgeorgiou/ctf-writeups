@@ -1,6 +1,6 @@
 # osquery_game (misc) 968 points
 
-#### Challenge Instructions
+### Challenge Instructions
 
 ```
 We like osquery, emojis, and farm-related video games.
@@ -11,7 +11,7 @@ ssh osquerygame@challenges.fbctf.com -p2222
 password: osquerygame
 ```
 
-#### Solution
+### Solution
 
 ```
 ssh osquerygame@challenges.fbctf.com -p2222
@@ -97,7 +97,7 @@ osquery> E0604 02:23:12.839308 31978 challenge.cpp:457] The sheep was not next t
 E0604 02:23:12.839395 31978 challenge.cpp:458] You failed a quest and cannot win the game. Please retry.
 ```
 
-#### Observations
+### Observations
 
 1. As the first quest states, the 🐑 sees us and runs away 😢. We need to be quick. We'll need to automate this with a script.
 2. The farm game extension gets triggered every time we query the `farm` table and makes the game progress by 1 day. This is important since we only have 5 days to complete our (3) quests.
@@ -136,7 +136,7 @@ WHERE action='move' and src=INSTR(fmt, '🐑') and dst=(INSTR(fmt, '🐷')-1);
 
 Magnificent. Still a big fat *nope* though. `src` and `dst` need to be actual numbers.
 
-#### Key Insight
+### Key Insight
 
 Remember when I said each query on the farm table makes the game progress by 1 day?
 
@@ -154,7 +154,7 @@ So we'll have to plant our seeds in the next season to avoid the following dread
 
 > W0604 03:46:06.483491 10980 challenge.cpp:501] Some plants or seedlings were overtaken by weeds.
 
-#### Solution Script
+### Solution Script
 
 ```
 from pwn import *
