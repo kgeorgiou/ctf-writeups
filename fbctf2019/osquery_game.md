@@ -120,21 +120,19 @@ We try this anyway and we get the bad news on day 6:
 
 We failed.
 
-1. Is it possible to combine 2 steps in one query and save a day?  
-   Nope. Trying to nest more than one `SELECT` statements in a single query:
+Is it possible to combine 2 steps in one query and save a day?  
+Nope. Trying to nest more than one `SELECT` statements in a single query:
+> E0604 03:02:22.856065 3858 challenge.cpp:516] You can only perform 1 action a day.
 
-   > E0604 03:02:22.856065 3858 challenge.cpp:516] You can only perform 1 action a day.
-
-2. Is it possible to move the 🐑 next to the 🐷 without taking a peek at the farm first?
-   Nope. This took some time to put together, so it deserves a mention:
-
+Is it possible to move the 🐑 next to the 🐷 without taking a peek at the farm first?  
+Nope. This took some time to put together, so it deserves a mention:
 ```
 SELECT farm, action, src, dst, fmt FROM
 (SELECT farm, action, src, dst, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(farm, 37, 500), 'F', ''), 'E', ''), 'D', ''), 'C', ''), 'B', ''), 'A', ''), '9', ''), '8', ''), '7', ''), '6', ''), '5', ''), '4', ''), '3', ''), '2', ''), '1', ''), '0', ''), CHAR(10), '') as fmt FROM farm LIMIT 1)
 WHERE action='move' and src=INSTR(fmt, '🐑') and dst=(INSTR(fmt, '🐷')-1);
 ```
 
-Magnificent. Still a big fat *nope* though. `src` and `dst` need actual numbers there.
+Magnificent. Still a big fat **nope** though. `src` and `dst` need actual numbers there.
 
 ### Key Insight
 
