@@ -101,7 +101,7 @@ E0604 02:23:12.839395 31978 challenge.cpp:458] You failed a quest and cannot win
 
 1. As the first quest states, the 🐑 sees us and runs away 😢. We need to be quick. We'll need to automate this with a script.
 2. The farm game extension gets triggered every time we query the `farm` table and makes the game progress by 1 day. This is important since we only have 5 days to complete our (4) quests.
-3. Since osquery supports `SELECT` statements only, we need to figure out how to issue a game command. `SELECT * FROM farm WHERE action={action_name} AND src={src} AND dst={dst};` does the trick (`src` and `dst` can be in the form of `0xFF`, `0x10` or `255`, `16`, etc.)
+3. Since osquery supports `SELECT` statements only, we need to figure out how to issue a game command. `SELECT * FROM farm WHERE action={action_name} AND src={src} AND dst={dst};` does the trick (`src` and `dst` can be in the form of `0xFF`, `0x10` or `255`, `16`)
 
 #### Quest Steps Breakdown
 
